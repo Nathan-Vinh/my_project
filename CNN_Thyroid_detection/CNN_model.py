@@ -11,19 +11,16 @@ from keras.preprocessing.image import ImageDataGenerator
 
 train_datagen = ImageDataGenerator(rescale=1. / 255, shear_range=0.2, zoom_range=0.2, horizontal_flip=True)
 
-train_generator = train_datagen.flow_from_directory(
-    r'C:\Users\Administrateur\Desktop\CNN_THYROID\train', target_size=(200, 200),
+train_generator = train_datagen.flow_from_directory( 'data\train', target_size=(200, 200),
     batch_size=128, class_mode='binary')
 
-test_generator = train_datagen.flow_from_directory(
-    r'C:\Users\Administrateur\Desktop\CNN_THYROID\test', target_size=(200, 200), 
+test_generator = train_datagen.flow_from_directory('data\test', target_size=(200, 200), 
     batch_size=128, class_mode='binary')
 
 
 test_datagen = ImageDataGenerator(rescale=1. / 255)
 
-validation_generator = test_datagen.flow_from_directory(
-    r'C:\Users\Administrateur\Desktop\CNN_THYROID\validation', target_size=(200, 200),
+validation_generator = test_datagen.flow_from_directory('data\validation', target_size=(200, 200),
     batch_size=128, class_mode='binary')
 
 
