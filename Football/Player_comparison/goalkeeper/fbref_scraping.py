@@ -48,6 +48,11 @@ def scraping_gk_fbref(url):
 
     # df creation
     df = pd.DataFrame(zipped_list, columns=["Statistic", "per90", "percentile"])
+    # Goal Against, appears 2 times, the second is always at 13
+    df.drop(index=13, inplace=True)
+    # reset index and drop the column created
+    df.reset_index()
+    df.drop("index", axis=1, inplace=True)
     
     return df
   
